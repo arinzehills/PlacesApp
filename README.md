@@ -1,50 +1,130 @@
-# Welcome to your Expo app 👋
+# PlacesApp - React Native Places Search Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native application for searching and exploring places using Google Places API, built with clean architecture principles and professional mobile development practices.
 
-## Get started
+## 📱 Live Preview
 
-1. Install dependencies
+🎬 **[Watch App Demo](https://www.loom.com/share/a8da95e0b3fb4565bf2df418e33a878c?sid=583fea77-8c8f-48bc-9276-fc0f9ad1907f)** - See the app in action!
 
+## 🚀 Features
+
+- **Google Places Autocomplete**: Real-time place search with debounced input
+- **Interactive Map View**: Visualize places on an interactive map with custom markers
+- **Search History**: Persistent storage of recent searches
+- **Place Details**: Comprehensive information about selected places
+- **Clean Architecture**: Modular structure with separation of concerns
+
+## 🛠 Tech Stack
+
+- **React Native** with Expo Router for navigation
+- **TypeScript** for type safety and better developer experience
+- **Redux Toolkit** for state management with async thunks
+- **Redux Persist** for data persistence
+- **Ant Design React Native** for consistent UI components
+- **React Native Maps** for map functionality
+- **Jest** with comprehensive test coverage
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # App-level configuration (Router, Layout)
+├── modules/               # Feature modules
+│   ├── places/           # Places search functionality
+│   │   ├── components/   # Reusable UI components
+│   │   ├── hooks/        # Custom hooks (useAutocomplete, usePlaceDetails)
+│   │   ├── redux/        # State management (slices, thunks)
+│   │   ├── screens/      # Screen components
+│   │   └── services/     # API services and business logic
+│   ├── map/              # Map functionality
+│   └── home/             # Home screen
+├── shared/               # Shared utilities
+│   └── utils/           # Common utilities (debounce, formatters, validation)
+└── store/               # Redux store configuration
+```
+
+## 🧪 Testing
+
+Comprehensive test suite covering:
+- Unit tests for utility functions
+- Redux slice and thunk testing
+- Service layer testing
+- Input validation testing
+
+```bash
+npm test              # Run all tests
+npm run test:watch    # Watch mode for development
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (>= 16)
+- Expo CLI
+- Google Places API key
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Set up environment variables:
+   - Add your Google Places API key to your environment
+   - Configure `EXPO_PUBLIC_GOOGLE_PLACES_API_KEY`
 
+4. Start the development server:
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+## 🏗 Architecture Highlights
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Clean Architecture Pattern
+- **Service Layer**: Handles API communication and data transformation
+- **Redux Layer**: Manages application state with async operations
+- **Hook Layer**: Provides reusable stateful logic
+- **Component Layer**: Focuses purely on UI presentation
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Key Design Decisions
+- **Modular Structure**: Features organized in self-contained modules
+- **TypeScript First**: Full type safety across the application
+- **Custom Hooks**: Encapsulated business logic in reusable hooks
+- **Error Handling**: Comprehensive error boundaries and user feedback
+- **Performance**: Debounced search, optimized re-renders, and efficient state updates
 
-## Get a fresh project
+### State Management
+- **Redux Toolkit** for predictable state updates
+- **Async Thunks** for API operations with loading states
+- **Redux Persist** for seamless user experience across app restarts
 
-When you're ready, run:
+## 🎯 Key Features Implementation
 
-```bash
-npm run reset-project
-```
+### Places Search
+- Real-time autocomplete with 300ms debounce
+- Error handling and loading states
+- History management with duplicate prevention
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Map Integration
+- Custom markers for search results
+- User location tracking
+- Smooth animations and region updates
 
-## Learn more
+### Data Persistence
+- Search history persistence
+- User preferences storage
+- Offline capability preparation
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🧩 Code Quality
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **ESLint** for code consistency
+- **TypeScript** strict mode enabled
+- **Modular architecture** with clear separation of concerns
+- **Comprehensive testing** with Jest
+- **Professional naming conventions** and file organization
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Built with ❤️ using modern React Native development practices**
