@@ -1,1 +1,0 @@
-export { searchPlaces, fetchPlaceDetails } from './placesThunks';

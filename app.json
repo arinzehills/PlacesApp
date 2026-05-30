@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "PlacesApp",
-    "slug": "PlacesApp",
+    "name": "GreenRide",
+    "slug": "greenrideapptask",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "placesapp",
+    "scheme": "greenride",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
