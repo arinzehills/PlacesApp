@@ -7,7 +7,7 @@ import ridesData from "@/data/rides.json";
 
 export default function HomeScreen() {
   const router = useRouter();
-  const { isDark } = useTheme();
+  const { colors } = useTheme();
 
   // Get first 3 rides for preview
   const previewRides = ridesData.rides.slice(0, 3);
@@ -22,14 +22,11 @@ export default function HomeScreen() {
 
   return (
     <ScrollView
-      style={[
-        styles.container,
-        { backgroundColor: isDark ? "#000" : "#FFFFFF" },
-      ]}
+      style={[styles.container, { backgroundColor: colors.background }]}
     >
       {/* Header */}
       <View style={styles.header}>
-        <Text style={[styles.greeting, { color: isDark ? "#FFFFFF" : "#333" }]}>
+        <Text style={[styles.greeting, { color: colors.text }]}>
           Let's hit the road
         </Text>
       </View>
@@ -43,11 +40,11 @@ export default function HomeScreen() {
           <View
             style={[
               styles.whereToInput,
-              { backgroundColor: isDark ? "#2C2C2E" : "#F5F5F5" },
+              { backgroundColor: colors.surface },
             ]}
             pointerEvents="none"
           >
-            <Text style={{ color: isDark ? "#8E8E93" : "#999", fontSize: 16 }}>
+            <Text style={{ color: colors.textTertiary, fontSize: 16 }}>
               Where to?
             </Text>
           </View>
@@ -56,7 +53,7 @@ export default function HomeScreen() {
 
       {/* Rides preview section */}
       <View style={styles.ridesSection}>
-        <Text style={[styles.sectionTitle, { color: isDark ? "#FFFFFF" : "#333" }]}>
+        <Text style={[styles.sectionTitle, { color: colors.text }]}>
           Available Rides
         </Text>
         {previewRides.map((ride) => (
@@ -72,13 +69,13 @@ export default function HomeScreen() {
           style={styles.viewMoreLink}
           onPress={handleViewMore}
         >
-          <Text style={[styles.viewMoreText, { color: isDark ? "#00C853" : "#00C853" }]}>
+          <Text style={[styles.viewMoreText, { color: colors.primary }]}>
             View More Rides
           </Text>
           <MaterialCommunityIcons
             name="chevron-right"
             size={16}
-            color={isDark ? "#00C853" : "#00C853"}
+            color={colors.primary}
           />
         </TouchableOpacity>
       </View>
