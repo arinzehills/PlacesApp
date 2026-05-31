@@ -9,8 +9,10 @@ export default function RouteListScreen() {
   const rides = ridesData.rides;
 
   const handleRidePress = (rideId: string) => {
-    console.log("Ride selected:", rideId);
-    // Will dispatch to booking slice and show bottom sheet
+    router.push({
+      pathname: "/booking",
+      params: { rideId },
+    });
   };
 
   const handleClose = () => {
