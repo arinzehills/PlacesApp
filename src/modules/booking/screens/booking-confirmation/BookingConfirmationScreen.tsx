@@ -5,11 +5,14 @@ import { Ride } from "@/modules/rides/types";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { useMapLocation } from "@/modules/map/hooks";
 import { useLocalSearchParams } from "expo-router";
+import { useDispatch } from "react-redux";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { setCurrentBooking } from "@/modules/booking/redux/slices/bookingSlice";
 import { BookingBottomSheet, LocationCard, MapView } from "./components";
 
 export default function BookingConfirmationScreen() {
+  const dispatch = useDispatch();
   const { colors } = useTheme();
   const { userLocation } = useMapLocation();
   const params = useLocalSearchParams();
@@ -39,6 +42,21 @@ export default function BookingConfirmationScreen() {
 
     getLocationName();
   }, [userLocation]);
+
+  // Set current booking when ride and location are available
+  useEffect(() => {
+    if (ride && locationName) {
+      dispatch(
+        setCurrentBooking({
+          id: `booking-${ride.id}-${Date.now()}`,
+          ride,
+          pickupLocation: locationName,
+          destination: "Destination", // Placeholder - in real app would be user-selected
+          timestamp: Date.now(),
+        })
+      );
+    }
+  }, [ride, locationName, dispatch]);
 
   if (!ride) {
     return (

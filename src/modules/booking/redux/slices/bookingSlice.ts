@@ -36,6 +36,7 @@ const bookingSlice = createSlice({
       if (state.currentBooking) {
         state.bookingHistory.push(state.currentBooking);
         state.status = "confirmed";
+        state.currentBooking = null; // Clear after confirming
       }
     },
     completeBooking: (state) => {

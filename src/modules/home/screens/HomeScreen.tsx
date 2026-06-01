@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { RideCard } from "@/modules/rides/components";
-import { CarBrandFilter } from "@/modules/home/components/CarBrandFilter";
+import CarBrandFilter from "@/modules/home/components/CarBrandFilter";
 import ridesData from "@/data/rides.json";
 
 export default function HomeScreen() {
